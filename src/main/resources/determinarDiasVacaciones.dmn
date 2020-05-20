@@ -24,6 +24,11 @@
     <dmn:extensionElements/>
     <dmn:variable id="_6EFE1D7A-917A-476D-9BCC-0B960E56E31F" name="Edad del  Empleado" typeRef="number"/>
   </dmn:inputData>
+  <dmn:inputData id="_7A965DDA-0407-4BDA-9CBC-D749EA3345F7" name="Tiempo Servicio">
+    <dmn:description>Tiempo de servicio del Empleado en la compañía</dmn:description>
+    <dmn:extensionElements/>
+    <dmn:variable id="_88C6DE1F-A403-4424-B509-E29569D7D99D" name="Tiempo Servicio" typeRef="tiempoServicio"/>
+  </dmn:inputData>
   <dmn:decision id="_8E995D76-A9CE-4788-8AC8-CD1A66ACC047" name="Determinar Dias de Vacacones">
     <dmn:description>Determinar Días de Vacaciones</dmn:description>
     <dmn:extensionElements/>
@@ -122,11 +127,6 @@
       </dmn:rule>
     </dmn:decisionTable>
   </dmn:decision>
-  <dmn:inputData id="_7A965DDA-0407-4BDA-9CBC-D749EA3345F7" name="Tiempo Servicio">
-    <dmn:description>Tiempo de servicio del Empleado en la compañía</dmn:description>
-    <dmn:extensionElements/>
-    <dmn:variable id="_88C6DE1F-A403-4424-B509-E29569D7D99D" name="Tiempo Servicio" typeRef="tiempoServicio"/>
-  </dmn:inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram>
       <di:extension>
@@ -149,15 +149,6 @@
         <dc:Bounds x="537.5981308411215" y="240" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
-      <dmndi:DMNShape id="dmnshape-_8E995D76-A9CE-4788-8AC8-CD1A66ACC047" dmnElementRef="_8E995D76-A9CE-4788-8AC8-CD1A66ACC047" isCollapsed="false">
-        <dmndi:DMNStyle>
-          <dmndi:FillColor red="255" green="255" blue="255"/>
-          <dmndi:StrokeColor red="0" green="0" blue="0"/>
-          <dmndi:FontColor red="0" green="0" blue="0"/>
-        </dmndi:DMNStyle>
-        <dc:Bounds x="699" y="92" width="172" height="70"/>
-        <dmndi:DMNLabel/>
-      </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-_7A965DDA-0407-4BDA-9CBC-D749EA3345F7" dmnElementRef="_7A965DDA-0407-4BDA-9CBC-D749EA3345F7" isCollapsed="false">
         <dmndi:DMNStyle>
           <dmndi:FillColor red="255" green="255" blue="255"/>
@@ -165,6 +156,15 @@
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
         <dc:Bounds x="931" y="240" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_8E995D76-A9CE-4788-8AC8-CD1A66ACC047" dmnElementRef="_8E995D76-A9CE-4788-8AC8-CD1A66ACC047" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="699" y="92" width="172" height="70"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-_11FF2139-7236-4FD3-AFDE-5D3C3355B18D" dmnElementRef="_11FF2139-7236-4FD3-AFDE-5D3C3355B18D">
