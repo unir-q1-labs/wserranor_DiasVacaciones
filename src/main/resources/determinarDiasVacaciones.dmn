@@ -1,21 +1,92 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_EC07488D-D092-4670-883B-6C8445ECB432" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_CEA4AA47-CB5D-4D58-8428-8BA1E621F27B" name="determinarDiasVacaciones" expressionLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_EC07488D-D092-4670-883B-6C8445ECB432">
   <dmn:extensionElements/>
+  <dmn:itemDefinition id="_C09D3658-D948-4293-985A-C5268E03C424" name="Edad" isCollection="false">
+    <dmn:typeRef>number</dmn:typeRef>
+    <dmn:allowedValues kie:constraintType="expression" id="_DC44DA77-9FBF-4F5E-A3C1-E34A1F85C030">
+      <dmn:text>&gt;= 15</dmn:text>
+    </dmn:allowedValues>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_4DABBA17-5EA5-4969-B398-36FD198631B6" name="tiempoServicio" isCollection="false">
+    <dmn:typeRef>number</dmn:typeRef>
+    <dmn:allowedValues kie:constraintType="expression" id="_3E8D285F-C7AE-4382-8CB2-7E5E901C11AB">
+      <dmn:text>&gt;0</dmn:text>
+    </dmn:allowedValues>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_3A00EF19-F134-4C12-BB98-29EA9D1E6760" name="diasVacaciones" isCollection="false">
+    <dmn:typeRef>number</dmn:typeRef>
+    <dmn:allowedValues kie:constraintType="expression" id="_35464A52-7BBD-4D53-B529-421776AA23AB">
+      <dmn:text>&gt;0</dmn:text>
+    </dmn:allowedValues>
+  </dmn:itemDefinition>
   <dmn:inputData id="_7F1C3CFC-A2AB-48E7-A9B9-6AE73BA0AE14" name="Edad del  Empleado">
+    <dmn:description>Edad del Empleado</dmn:description>
     <dmn:extensionElements/>
-    <dmn:variable id="_6EFE1D7A-917A-476D-9BCC-0B960E56E31F" name="Edad del  Empleado"/>
+    <dmn:variable id="_6EFE1D7A-917A-476D-9BCC-0B960E56E31F" name="Edad del  Empleado" typeRef="number"/>
   </dmn:inputData>
   <dmn:decision id="_8E995D76-A9CE-4788-8AC8-CD1A66ACC047" name="Determinar Dias de Vacacones">
     <dmn:description>Determinar Días de Vacaciones</dmn:description>
     <dmn:extensionElements/>
     <dmn:question>Cuántos días de vacaciones tiene disponible el Empleado</dmn:question>
-    <dmn:variable id="_5DE87148-FD45-4FE9-86F2-B76A7BB1B43A" name="Determinar Dias de Vacacones"/>
+    <dmn:variable id="_5DE87148-FD45-4FE9-86F2-B76A7BB1B43A" name="Determinar Dias de Vacacones" typeRef="diasVacaciones"/>
+    <dmn:informationRequirement id="_11FF2139-7236-4FD3-AFDE-5D3C3355B18D">
+      <dmn:requiredInput href="#_7F1C3CFC-A2AB-48E7-A9B9-6AE73BA0AE14"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_B33768A2-9E91-4250-837C-0586F7FA8644">
+      <dmn:requiredInput href="#_7A965DDA-0407-4BDA-9CBC-D749EA3345F7"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_7E847A5D-B325-4DF2-A51E-6905AE26773A" hitPolicy="COLLECT" aggregation="SUM" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_1FC9C4E0-8CF1-4DE1-AC1C-B25E85AC5B33">
+        <dmn:inputExpression id="_8B2187F3-1B7A-40A1-955B-07EFE80A490B" typeRef="number">
+          <dmn:text>Edad del  Empleado</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_91D53134-6AD0-4304-B6AC-4A5105CE12B7">
+        <dmn:inputExpression id="_D01D6252-98C7-400E-B4FB-C088611AD370">
+          <dmn:text>Tiempo Servicio</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_B5CB0B42-9AE9-45FF-9C3F-CC07D81574D2"/>
+      <dmn:rule id="_8A402194-C07E-4706-9425-31191FE218C8">
+        <dmn:inputEntry id="_27EC1B46-8EA8-4C42-BB4B-F0040F03D7D9">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_732D8B20-5B17-42EA-8B7E-7196C4DF0F19">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_ABEE4477-26A6-48FA-8487-6F41526A57CC">
+          <dmn:text></dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
   </dmn:decision>
+  <dmn:inputData id="_7A965DDA-0407-4BDA-9CBC-D749EA3345F7" name="Tiempo Servicio">
+    <dmn:description>Tiempo de servicio del Empleado en la compañía</dmn:description>
+    <dmn:extensionElements/>
+    <dmn:variable id="_88C6DE1F-A403-4424-B509-E29569D7D99D" name="Tiempo Servicio" typeRef="tiempoServicio"/>
+  </dmn:inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram>
       <di:extension>
-        <kie:ComponentsWidthsExtension/>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_7E847A5D-B325-4DF2-A51E-6905AE26773A">
+            <kie:width>50.0</kie:width>
+            <kie:width>100.0</kie:width>
+            <kie:width>100.0</kie:width>
+            <kie:width>100.0</kie:width>
+            <kie:width>100.0</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
       </di:extension>
+      <dmndi:DMNShape id="dmnshape-_7F1C3CFC-A2AB-48E7-A9B9-6AE73BA0AE14" dmnElementRef="_7F1C3CFC-A2AB-48E7-A9B9-6AE73BA0AE14" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="537.5981308411215" y="240" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-_8E995D76-A9CE-4788-8AC8-CD1A66ACC047" dmnElementRef="_8E995D76-A9CE-4788-8AC8-CD1A66ACC047" isCollapsed="false">
         <dmndi:DMNStyle>
           <dmndi:FillColor red="255" green="255" blue="255"/>
@@ -25,15 +96,23 @@
         <dc:Bounds x="699" y="92" width="172" height="70"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
-      <dmndi:DMNShape id="dmnshape-_7F1C3CFC-A2AB-48E7-A9B9-6AE73BA0AE14" dmnElementRef="_7F1C3CFC-A2AB-48E7-A9B9-6AE73BA0AE14" isCollapsed="false">
+      <dmndi:DMNShape id="dmnshape-_7A965DDA-0407-4BDA-9CBC-D749EA3345F7" dmnElementRef="_7A965DDA-0407-4BDA-9CBC-D749EA3345F7" isCollapsed="false">
         <dmndi:DMNStyle>
           <dmndi:FillColor red="255" green="255" blue="255"/>
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="527" y="225" width="100" height="50"/>
+        <dc:Bounds x="931" y="240" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-_11FF2139-7236-4FD3-AFDE-5D3C3355B18D" dmnElementRef="_11FF2139-7236-4FD3-AFDE-5D3C3355B18D">
+        <di:waypoint x="587.5981308411215" y="240"/>
+        <di:waypoint x="785" y="162"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-_B33768A2-9E91-4250-837C-0586F7FA8644" dmnElementRef="_B33768A2-9E91-4250-837C-0586F7FA8644">
+        <di:waypoint x="981" y="240"/>
+        <di:waypoint x="785" y="162"/>
+      </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
 </dmn:definitions>
