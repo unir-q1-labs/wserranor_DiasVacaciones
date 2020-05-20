@@ -99,7 +99,7 @@
       <dmn:rule id="_BACA4A69-AE68-4C6C-A11F-DE8E9223A2F8">
         <dmn:description>Dias extra para empleados entre 15 y 30 años de servicio</dmn:description>
         <dmn:inputEntry id="_1E8AAB92-3D77-4EB6-8863-D81088D465CD">
-          <dmn:text>-</dmn:text>
+          <dmn:text>(18..60)</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_08577506-C7D7-4773-A2FF-ED0DC8345070">
           <dmn:text>[15..30]</dmn:text>
@@ -114,7 +114,7 @@
           <dmn:text>[45..60)</dmn:text>
         </dmn:inputEntry>
         <dmn:inputEntry id="_AB1BF69C-281B-4AC4-A15F-5A5420A4BE11">
-          <dmn:text>-</dmn:text>
+          <dmn:text>not(>=30)</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_5F472006-38FC-4C61-8176-0B5A8AF883A2">
           <dmn:text>2</dmn:text>
